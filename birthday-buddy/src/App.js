@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Person from "./Person.jsx";
+import React, { useState } from "react";
 
 const info = [
   {
@@ -40,7 +41,12 @@ const info = [
   },
 ];
 
+function isClicked() {
+  console.log("button is clicked");
+}
+
 function App() {
+  const [rendered, setRender] = useState(true);
   return (
     <div className="App">
       <header className="app-container">
@@ -48,17 +54,21 @@ function App() {
           <h2>5 birthdays today</h2>
 
           <ul class="people-list">
-            {info.map((person) => (
-              <Person
-                key={person.id}
-                name={person.name}
-                age={person.age}
-                image={person.image}
-              />
-            ))}
+            {rendered
+              ? info.map((person) => (
+                  <Person
+                    key={person.id}
+                    name={person.name}
+                    age={person.age}
+                    image={person.image}
+                  />
+                ))
+              : ""}
           </ul>
 
-          <button class="clear-btn">Clear All</button>
+          <button class="clear-btn" onClick={() => setRender(!rendered)}>
+            Clear All
+          </button>
         </div>
       </header>
     </div>
