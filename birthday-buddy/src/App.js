@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Person from "./Person.jsx";
 import React, { useState } from "react";
@@ -41,17 +40,13 @@ const info = [
   },
 ];
 
-function isClicked() {
-  console.log("button is clicked");
-}
-
 function App() {
   const [rendered, setRender] = useState(true);
   return (
     <div className="App">
       <header className="app-container">
         <div class="container">
-          <h2>5 birthdays today</h2>
+          <h2>{rendered ? "5" : "0"} birthdays today</h2>
 
           <ul class="people-list">
             {rendered
