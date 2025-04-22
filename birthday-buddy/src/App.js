@@ -41,27 +41,30 @@ const info = [
 ];
 
 function App() {
-  const [rendered, setRender] = useState(true);
+  const [people, setPeople] = useState(info);
   return (
     <div className="App">
       <header className="app-container">
         <div class="container">
-          <h2>{rendered ? "5" : "0"} birthdays today</h2>
+          <h2>{people.length} birthdays today</h2>
 
           <ul class="people-list">
-            {rendered
-              ? info.map((person) => (
-                  <Person
-                    key={person.id}
-                    name={person.name}
-                    age={person.age}
-                    image={person.image}
-                  />
-                ))
-              : ""}
+            {people.map((person, i) => (
+              <Person
+                key={person.id}
+                id={person.id}
+                name={person.name}
+                age={person.age}
+                image={person.image}
+                index={i}
+                setPeople={setPeople}
+              />
+            ))}
           </ul>
 
-          <button class="clear-btn" onClick={() => setRender(!rendered)}>
+          <button class="clear-btn" onClick={() => setPeople([])}>
+            {/* <button class="clear-btn" onClick={() => setRender(false)}> */}
+            {/* {rendered ? "Clear" : "Show"} All */}
             Clear All
           </button>
         </div>
