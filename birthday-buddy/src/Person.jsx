@@ -12,7 +12,14 @@ const Person = (props) => {
           <h5 class="person-age">{age} years</h5>
         </div>
 
-        <button class="delete-btn" onClick={() => props.setPeople([])}>
+        <button
+          class="delete-btn"
+          onClick={() =>
+            props.setPeople((prevPeople) =>
+              prevPeople.filter((p) => p.id !== id)
+            )
+          }
+        >
           X
         </button>
       </li>

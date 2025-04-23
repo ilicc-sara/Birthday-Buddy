@@ -56,9 +56,25 @@ function App() {
                 name={person.name}
                 age={person.age}
                 image={person.image}
-                index={i}
                 setPeople={setPeople}
               />
+
+              // <li class="person">
+              //   <img src={person.image} class="profile-photo" />
+              //   <div class="person-info">
+              //     <h3 class="person-name">{person.name}</h3>
+              //     <h5 class="person-age">{person.age} years</h5>
+              //   </div>
+
+              //   <button
+              //     class="delete-btn"
+              //     onClick={() =>
+              //       setPeople(people.filter((prsn) => prsn.id !== person.id))
+              //     }
+              //   >
+              //     X
+              //   </button>
+              // </li>
             ))}
           </ul>
 
